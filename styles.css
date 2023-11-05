@@ -1,0 +1,48 @@
+body {
+	background-color: #2d2d2d;
+	margin: 0;
+}
+
+
+.editor-body {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.editor-hierarchy {
+	background-color: white;
+	width: 25vw;
+	height: 60vh;
+}
+
+.editor-gameview {
+	background-color: rgb(106, 106, 106);
+	width: 55vw;
+	height: 60vh;
+}
+
+.editor-inspector {
+	background-color: white;
+	width: 20vw;
+	height: 60vh;
+}
+
+.editor-upper {
+	background-color: rgb(202, 202, 202);
+	width: 100vw;
+	height: 10vh;
+}
+
+.editor-filesystem {
+	background-color: rgb(163, 163, 163);
+	height: 30vh;
+	width: 100vw;
+}
+
+
+.playstop-buttons button {
+	background-color: rgba(0, 0, 0, 0);
+	text-decoration: none;
+	border: none;
+}
