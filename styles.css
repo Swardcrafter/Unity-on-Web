@@ -1,19 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@600&family=Lato&family=Roboto:wght@700;900&family=Rubik&display=swap');
+
 body {
 	background-color: #2d2d2d;
 	margin: 0;
+	font-family: 'Rubik', sans-serif;
 }
-
 
 .editor-body {
 	display: flex;
 	justify-content: flex-start;
 	align-items: flex-start;
-}
-
-.editor-hierarchy {
-	background-color: white;
-	width: 25vw;
-	height: 60vh;
 }
 
 .editor-gameview {
@@ -40,9 +36,63 @@ body {
 	width: 100vw;
 }
 
+.playstop-buttons {
+	display: flex;
+	justify-content: center;
+}
+
 
 .playstop-buttons button {
 	background-color: rgba(0, 0, 0, 0);
 	text-decoration: none;
 	border: none;
+}
+
+.playstop-buttons span {
+	font-size: 500%;
+}
+
+
+.editor-hierarchy {
+	display: flex;
+	flex-direction: column;
+	justify-items: flex-start;
+	background-color: white;
+	width: 25vw;
+	height: 60vh;
+}
+
+.editor-hierarchy-card {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(137, 137, 137);
+	height: 2vh;
+	width: 24.75vw;
+	border-color: #2d2d2d;
+	border-style: solid;
+}
+
+.editor-hierarchy-text {
+	font-weight: bold;
+}
+
+.context-menu {
+    position: fixed;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    font-family: 'Rubik', sans-serif;
+    z-index: 999; /* Make sure the context menu appears above other content */
+}
+
+.context-menu-option {
+    padding: 10px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.context-menu-option:hover {
+    background-color: #f2f2f2;
 }
