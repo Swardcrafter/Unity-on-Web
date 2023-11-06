@@ -73,6 +73,8 @@ body {
 	border-style: solid;
 }
 
+
+
 .editor-hierarchy-text {
 	font-weight: bold;
 }
@@ -91,6 +93,35 @@ body {
     cursor: pointer;
     user-select: none;
     transition: background-color 0.2s;
+}
+
+
+.editor-inspector-objectname {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(137, 137, 137);
+	height: 2vh;
+	width: 19.75vw;
+	margin: 0;
+	border-color: #2d2d2d;
+	border-style: solid;
+}
+
+.editor-inspector-component {
+	display: flex;
+	background-color: rgb(137, 137, 137);
+	height: 6vh;
+	width: 19.75vw;
+	margin: 0;
+	border-color: #2d2d2d;
+	border-style: solid;
+}
+
+.editor-inspector-component-name {
+	justify-self: flex-start;
+	align-self: flex-start;
+	margin: 0;
 }
 
 .context-menu-option:hover {

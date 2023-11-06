@@ -9,7 +9,7 @@ document.addEventListener('contextmenu', function(e) {
     if (e.target.classList.contains('editor-hierarchy')) {
         createContextMenu(e, ['Create'], e.clientX, e.clientY);
     } else if (e.target.classList.contains('editor-hierarchy-card')) {
-        createContextMenu(e, ['Create', 'Delete'], e.clientX, e.clientY);
+        createContextMenu(e, ['Create', 'Delete', 'Rename'], e.clientX, e.clientY);
     }
 }, false);
 
@@ -32,6 +32,8 @@ function createContextMenu(event, options, x, y) {
                 createObject();
             } else if(optionText == "Delete") {
                 deleteObject(event.target);
+            } else if(optionText == "Rename") {
+                renameObject(event.target);
             }
             contextMenu.style.display = 'none'; // Hide the context menu after clicking
         });
@@ -51,6 +53,8 @@ function createContextMenu(event, options, x, y) {
 function createObject() {
     let object_name = prompt('Object name?');
 
+    if(object_name == null) { return; }
+
     // Check if an object with the same name already exists
     const existingObjects = document.querySelectorAll('.editor-hierarchy-card .editor-hierarchy-text');
     const nameAlreadyExists = Array.from(existingObjects).some(object => object.innerText.toLowerCase() === object_name.toLowerCase());
@@ -62,7 +66,7 @@ function createObject() {
         return;
     }
     if (name_is_nothing) {
-        alert('Pleace put in a name.');
+        alert('Please put in a name.');
         createObject();
         return;
     }
@@ -82,4 +86,28 @@ function createObject() {
 
 function deleteObject(object) {
     object.remove();
+}
+
+function renameObject(object) {
+    let object_name = prompt(`Rename ${object.innerText} to what?`);
+
+    // Check if an object with the same name already exists
+    const existingObjects = document.querySelectorAll('.editor-hierarchy-card .editor-hierarchy-text');
+    const nameAlreadyExists = Array.from(existingObjects).some(object => object.innerText.toLowerCase() === object_name.toLowerCase());
+    const name_is_nothing = object_name == '';
+
+    if (nameAlreadyExists) {
+        alert('An object with the same name already exists. Please pick a new name.');
+        renameObject(object);
+        return;
+    }
+    if (name_is_nothing) {
+        alert('Please put in a name.');
+        renameObject(object);
+        return;
+    }
+
+
+    object.innerText = object_name;
+    object.style.fontWeight = 'bold';
 }
