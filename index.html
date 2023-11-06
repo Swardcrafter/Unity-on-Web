@@ -42,12 +42,37 @@
 					<p class="editor-inspector-objectname">Object Number One</p>
 
 					<div class="editor-inspector-component">
-						<p class="editor-inspector-component-name">Transform</p>
+						<p class="editor-inspector-component-name">Transform: </p>
+
 
 						<div class="editor-inspector-component-var">
-							<p class="editor-inspector-component-var-text">Pos</p>
-							<input type="text" class="editor-inspector-component-var-input" value="0">
+							<div class="editor-inspector-component-var-text">Pos: </div>
+
+							<div class="editor-inspector-component-var-input-group">
+								<p class="editor-inspector-component-var-text">X:</p>
+								<input type="number" class="editor-inspector-component-var-input" value="0">
+							</div>
+				
+							<div class="editor-inspector-component-var-input-group">
+								<p class="editor-inspector-component-var-text">Y:</p>
+								<input type="number" class="editor-inspector-component-var-input" value="0">
+							</div>
 						</div>
+
+						<div class="editor-inspector-component-var">
+							<div class="editor-inspector-component-var-text">Scale: </div>
+
+							<div class="editor-inspector-component-var-input-group">
+								<p class="editor-inspector-component-var-text">X:</p>
+								<input type="number" class="editor-inspector-component-var-input" value="0">
+							</div>
+				
+							<div class="editor-inspector-component-var-input-group">
+								<p class="editor-inspector-component-var-text">Y:</p>
+								<input type="number" class="editor-inspector-component-var-input" value="0">
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -56,7 +81,12 @@
 			</div>
 		</div>
 
-		
-		<script src="editor-script.js" async defer></script>
+		<!-- Imports -->
+		<script src="classes/components.js"></script>
+		<script src="classes/gamemanager.js"></script>
+		<script src="classes/gameobject.js"></script>
+
+		<script src="game-script.js"></script>
+		<script src="editor-script.js"></script>
 	</body>
 </html>

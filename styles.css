@@ -97,32 +97,55 @@ body {
 
 
 .editor-inspector-objectname {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: rgb(137, 137, 137);
-	height: 2vh;
-	width: 19.75vw;
-	margin: 0;
-	border-color: #2d2d2d;
-	border-style: solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(137, 137, 137);
+    font-weight: bold;
+    font-size: 40px;
+    margin: 0;
+    border-color: #2d2d2d;
+    border-style: solid;
 }
 
 .editor-inspector-component {
-	display: flex;
-	background-color: rgb(137, 137, 137);
-	height: 6vh;
-	width: 19.75vw;
-	margin: 0;
-	border-color: #2d2d2d;
-	border-style: solid;
+    display: flex;
+    background-color: rgb(137, 137, 137);
+    margin: 0;
+    border-color: #2d2d2d;
+    border-style: solid;
+    justify-content: flex-start;
+    align-content: flex-start;
+	flex-direction: column;
 }
 
 .editor-inspector-component-name {
-	justify-self: flex-start;
-	align-self: flex-start;
-	margin: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
 }
+
+.editor-inspector-component-var {
+    display: flex;
+    align-items: center;
+}
+
+.editor-inspector-component-var-input-group {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Add margin for spacing between X and Y inputs */
+}
+
+.editor-inspector-component-var-text {
+    margin: 0;
+    margin-right: 10px; /* Add margin to create space between "Pos:" and the input fields */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.editor-inspector-component-var-input {
+    width: 50px; /* Adjust the width of the input fields as needed */
+}
+
 
 .context-menu-option:hover {
     background-color: #f2f2f2;

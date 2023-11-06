@@ -71,6 +71,8 @@ function createObject() {
         return;
     }
 
+    MainGameManager.add_gameObject("jeff");
+
     let object = document.createElement('div');
     let object_2 = document.createElement('p');
 
@@ -85,10 +87,28 @@ function createObject() {
 
 
 function deleteObject(object) {
-    object.remove();
+    const hierarchy = document.querySelectorAll('.editor-hierarchy')[0];
+    
+    // Find the index of the object inside the hierarchy
+    const index = Array.from(hierarchy.children).indexOf(object);
+    
+    if (index !== -1) {
+        // Remove the object from the hierarchy
+        hierarchy.removeChild(object);
+        
+        // Assuming GameManager.remove_gameObject takes the index as an argument
+        MainGameManager.remove_gameObject(index);
+    } else {
+        console.error("Object not found in the hierarchy.");
+    }
 }
 
 function renameObject(object) {
+    const hierarchy = document.querySelectorAll('.editor-hierarchy')[0];
+    
+    // Find the index of the object inside the hierarchy
+    const index = Array.from(hierarchy.children).indexOf(object);
+
     let object_name = prompt(`Rename ${object.innerText} to what?`);
 
     // Check if an object with the same name already exists
@@ -107,7 +127,7 @@ function renameObject(object) {
         return;
     }
 
-
+    MainGameManager.rename_gameObject(index, object_name);
     object.innerText = object_name;
     object.style.fontWeight = 'bold';
 }
