@@ -25,6 +25,26 @@ class GameManager {
 		this.game_objects[index].name = name;
 	}
 
+	get_gameObject_name(name) {
+		let end_gameObject = null;
+		for(var index=0, gameObject; gameObject = this.game_objects[index]; index++) {
+			if(gameObject.name == name) {
+				end_gameObject = gameObject;
+			}
+		}
+    
+		if (end_gameObject) {
+			return end_gameObject.id;
+		} else {
+			console.error(`No GameObject with the name "${name}" found.`);
+			return null; // You can return a default value or handle the error as needed.
+		}
+	}
+
+	get_gameObject_index(index) {
+		return this.game_objects[index];
+	}
+
 
 
 	start_loop() {

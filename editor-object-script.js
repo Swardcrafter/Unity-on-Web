@@ -71,7 +71,7 @@ function createObject() {
         return;
     }
 
-    MainGameManager.add_gameObject("jeff");
+    MainGameManager.add_gameObject(object_name);
 
     let object = document.createElement('div');
     let object_2 = document.createElement('p');

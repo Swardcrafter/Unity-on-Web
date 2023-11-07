@@ -39,6 +39,7 @@
 				</div>
 				<canvas class="editor-gameview"></canvas>
 				<div class="editor-inspector">
+					<!--
 					<p class="editor-inspector-objectname">Object Number One</p>
 
 					<div class="editor-inspector-component">
@@ -74,6 +75,7 @@
 						</div>
 
 					</div>
+					-->
 				</div>
 			</div>
 			<div class="editor-lower">
@@ -82,11 +84,18 @@
 		</div>
 
 		<!-- Imports -->
-		<script src="classes/components.js"></script>
-		<script src="classes/gamemanager.js"></script>
-		<script src="classes/gameobject.js"></script>
+
+		<!-- Components: -->
+		<script src="classes/components/component-class.js"></script>
+
+		<script src="classes/components/custom-components/TransformComponent.js"></script>
+		<script src="classes/components/custom-components/SquareRenderComponent.js"></script>
+
+		<script src="classes/object-scripts/gamemanager.js"></script>
+		<script src="classes/object-scripts/gameobject.js"></script>
 
 		<script src="game-script.js"></script>
-		<script src="editor-script.js"></script>
+		<script src="editor-component-script.js"></script>
+		<script src="editor-object-script.js"></script>
 	</body>
 </html>
