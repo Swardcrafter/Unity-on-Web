@@ -5,6 +5,7 @@ class GameObject {
 		this.id = id;
 
 		this.add_component(TransformComponent);
+		this.add_component(SquareRenderComponent);
 	}
 
 
@@ -14,8 +15,8 @@ class GameObject {
 		}
 	}
 
-	add_component(component_class) {
-		this.components[component_class.name] = new component_class(this);
+	add_component(component_class, args=[]) {
+		this.components[component_class.name] = new component_class(this, ...args);
 	}
 
 	remove_component(component_name) {
