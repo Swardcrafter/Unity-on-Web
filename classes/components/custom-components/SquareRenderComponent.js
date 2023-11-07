@@ -1,5 +1,5 @@
 class SquareRenderComponent extends Component {
-	constructor(gameObject, color) {
+	constructor(gameObject, color='black') {
 		super(gameObject);
 
 		this.color = color;

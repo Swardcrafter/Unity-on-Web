@@ -97,6 +97,7 @@ function deleteObject(object) {
         hierarchy.removeChild(object);
         
         // Assuming GameManager.remove_gameObject takes the index as an argument
+        UnloadObjects();
         MainGameManager.remove_gameObject(index);
     } else {
         console.error("Object not found in the hierarchy.");
@@ -127,6 +128,7 @@ function renameObject(object) {
         return;
     }
 
+    UnloadObjects();
     MainGameManager.rename_gameObject(index, object_name);
     object.innerText = object_name;
     object.style.fontWeight = 'bold';

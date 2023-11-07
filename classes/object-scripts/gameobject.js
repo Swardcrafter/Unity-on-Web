@@ -5,7 +5,6 @@ class GameObject {
 		this.id = id;
 
 		this.add_component(TransformComponent);
-		this.add_component(SquareRenderComponent);
 	}
 
 
