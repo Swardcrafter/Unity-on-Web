@@ -4,6 +4,7 @@ class GameManager {
 		this.frameRate = 60;
 		this.lastFrameTime = 0;
 		this.deltaTime = 0;
+		this.playing = false;
 	}
 
 	add_gameObject(name) {
@@ -51,9 +52,16 @@ class GameManager {
 		const currentTime = performance.now(); // Get current timestamp in milliseconds
 		this.deltaTime += (currentTime - this.lastFrameTime) / 1000; // Convert to seconds
 
+		const canvas = document.querySelectorAll('.editor-gameview')[0];
+		const ctx = canvas.getContext('2d');
+
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
 		if (this.deltaTime >= 1 / this.frameRate) {
 			for (let index = 0; index < this.game_objects.length; index++) {
-				this.game_objects[index].update_components();
+				if(this.playing == true) {
+					this.game_objects[index].update_components();
+				}
 			}
 			this.deltaTime -= 1 / this.frameRate;
 		}

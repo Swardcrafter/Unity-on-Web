@@ -19,6 +19,6 @@ class GameObject {
 	}
 
 	remove_component(component_name) {
-		delete this.components.component_name;
+		delete this.components[component_name];
 	}
 }

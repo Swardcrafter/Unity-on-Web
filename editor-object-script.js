@@ -10,6 +10,10 @@ document.addEventListener('contextmenu', function(e) {
         createContextMenu(e, ['Create'], e.clientX, e.clientY);
     } else if (e.target.classList.contains('editor-hierarchy-card')) {
         createContextMenu(e, ['Create', 'Delete', 'Rename'], e.clientX, e.clientY);
+    } else if(e.target.classList.contains('editor-inspector')) {
+        createContextMenu(e, ['Add Component'], e.clientX, e.clientY);
+    } else if(e.target.classList.contains('editor-inspector-component-name')) {
+        createContextMenu(e, ['Add Component', 'Remove Component'], e.clientX, e.clientY);
     }
 }, false);
 
@@ -34,6 +38,10 @@ function createContextMenu(event, options, x, y) {
                 deleteObject(event.target);
             } else if(optionText == "Rename") {
                 renameObject(event.target);
+            } else if(optionText == "Add Component") {
+                AddComponent();
+            } else if(optionText == "Remove Component") {
+                RemoveComponent(event.target);
             }
             contextMenu.style.display = 'none'; // Hide the context menu after clicking
         });
@@ -132,4 +140,40 @@ function renameObject(object) {
     MainGameManager.rename_gameObject(index, object_name);
     object.innerText = object_name;
     object.style.fontWeight = 'bold';
+}
+
+
+function AddComponent() {
+    const component = prompt("Component Name?");
+
+    if(component != null) {
+        // Add Component
+
+        const gameObject_name = document.querySelectorAll('.editor-inspector-objectname')[0].innerText;
+
+        const gameObject = MainGameManager.get_gameObject_index(MainGameManager.get_gameObject_name(gameObject_name));
+
+        
+        const comp_class = eval(component);
+        const comp = new comp_class();
+
+
+        gameObject.add_component(comp.constructor);
+
+        // editor-hierarchy-card
+        LoadObjectWithObject(gameObject, gameObject.name);
+
+    }
+}
+
+
+function RemoveComponent(target) {
+    
+    const gameObject_name = document.querySelectorAll('.editor-inspector-objectname')[0].innerText;
+
+    const gameObject = MainGameManager.get_gameObject_index(MainGameManager.get_gameObject_name(gameObject_name));
+
+    gameObject.remove_component(target.innerText);
+
+    LoadObjectWithObject(gameObject, gameObject.name);
 }

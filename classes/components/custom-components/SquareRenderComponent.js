@@ -19,12 +19,24 @@ class SquareRenderComponent extends Component {
 
 		this.sections_variable_names = {
 			"Color: ": {
-				"Main: ": 'color'
+				"Main: ": ['color']
 			}
 		};
 	}
 
 	Update() {
-		// console.log(this.gameObject.components.TransformComponent.position);
+		const canvas = document.querySelectorAll('.editor-gameview')[0];
+
+		const ctx = canvas.getContext('2d');
+
+		ctx.fillStyle = this.color;
+		ctx.globalCompositeOperation = "source-over";
+
+		const position = this.gameObject.components.TransformComponent.position;
+		const scale = this.gameObject.components.TransformComponent.scale;
+
+		ctx.fillRect(position.x, position.y, scale.x, scale.y);
+
+		console.log(this.color);
 	}
 }

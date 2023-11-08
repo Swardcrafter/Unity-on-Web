@@ -16,6 +16,7 @@ body {
 	background-color: rgb(106, 106, 106);
 	width: 55vw;
 	height: 60vh;
+	will-change: transform;
 }
 
 .editor-inspector {

@@ -3,13 +3,13 @@ class TransformComponent extends Component {
 		super(gameObject);
 
 		this.position = {
-			"x": 0,
-			"y": 0
+			"x": 10,
+			"y": 10
 		};
 
 		this.scale = {
-			"x": 0,
-			"y": 0
+			"x": 100,
+			"y": 100
 		};
 
 
@@ -37,12 +37,12 @@ class TransformComponent extends Component {
 
 		this.sections_variable_names = {
 			"Position: ": {
-				"X: ": 'position["x"]',
-				"Y: ": 'position["y"]'
+				"X: ": ['position', 'x'],
+				"Y: ": ['position', 'y']
 			},
 			"Scale: ": {
-				"X: ": 'scale["x"]',
-				"Y: ": 'scale["y"]'
+				"X: ": ['scale', 'x'],
+				"Y: ": ['scale', 'y']
 			}
 		}
 	}
